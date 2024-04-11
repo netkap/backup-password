@@ -11,8 +11,12 @@ This is a simple backup system designed to automatically back up encrypted passw
 ## Prerequisites
 
 - Docker installed on your system.
+## Installation Method 1
+1. Pull the docker image:
+      ```bash
+      docker pull netkap/backup-system
 
-## Installation
+## Installation Method 2
 
 1. Clone this repository:
    ```bash

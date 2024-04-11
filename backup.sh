@@ -15,18 +15,18 @@ then
   exit
 fi
 
-# [TASK 1]
+# [STEP 1]
 targetDirectory=$1
 destinationDirectory=$2
 
-# [TASK 2]
+# [STEP 2]
 echo "targetDirectory is $1"
 echo "destinationDirectory is $2"
 
-# [TASK 3]
+# [STEP 3]
 currentTS=`$(date +%s)`
 
-# [TASK 4]
+# [STEP 4]
 backupFileName="backup-[$currentTS].tar.gz"
 
 # We're going to:
@@ -36,35 +36,35 @@ backupFileName="backup-[$currentTS].tar.gz"
 
 # To make things easier, we will define some useful variables...
 
-# [TASK 5]
+# [STEP 5]
 origAbsPath=$(pwd)
 
-# [TASK 6]
+# [STEP 6]
 cd $destinationDirectory
 destDirAbsPath=$destinationDirectory
 
-# [TASK 7]
+# [STEP 7]
 cd $origAbsPath
 cd $targetDirectory
 
-# [TASK 8]
+# [STEP 8]
 yesterdayTS=$($currentTS-86400)
 
 declare -a toBackup
 
-for file in $(ls) # [TASK 9]
+for file in $(ls) # [STEP 9]
 do
-  # [TASK 10]
+  # [STEP 10]
   if (('date -r $file +%s' >$yesterdayTS))
   then
-    # [TASK 11]
+    # [STEP 11]
 	toBackup+=$(file)
   fi
 done
 
-# [TASK 12]
+# [STEP 12]
 tar -czvf $backupFileName ${toBackup[@]}
 
-# [TASK 13]
+# [STEP 13]
 mv $backupFileName $destinationDirectory
 
